@@ -1,3 +1,4 @@
+import { BonusPrintables } from "@/components/bonus-printables";
 import { BuyCtas } from "@/components/buy-ctas";
 import { SampleDownloadForm } from "@/components/sample-download-form";
 
@@ -28,23 +29,12 @@ export default function Home() {
                 A guide to caring for indoor plants
               </p>
               <p className="mt-5 max-w-md text-base leading-relaxed text-cream/90 sm:text-lg">
-                A short starter handbook — not an encyclopedia. Use the care
+                A short starter handbook, not an encyclopedia. Use the care
                 cards when you bring a plant home, and keep it beside the
                 watering can.
               </p>
-              <div className="mt-8 flex flex-col gap-3">
-                <BuyCtas />
-                <p className="text-sm text-cream/80">
-                  Etsy and Payhip links are placeholders until the listings go
-                  live.{" "}
-                  <a
-                    href="#free-sample"
-                    className="underline decoration-cream/50 underline-offset-4 transition hover:text-cream"
-                  >
-                    Or try a free sample first
-                  </a>
-                  .
-                </p>
+              <div className="mt-8">
+                <BuyCtas showPlaceholderNote />
               </div>
             </div>
 
@@ -70,12 +60,21 @@ export default function Home() {
             />
             <ValueCard
               title="Starter-friendly"
-              body="Written for the plants you already love — and the ones you are about to bring home."
+              body="Written for the plants you already love, and the ones you are about to bring home."
             />
             <ValueCard
               title="Take it with you"
               body="Instant digital download. Open it on your phone while you stand at the potting bench."
             />
+          </div>
+        </section>
+
+        <section
+          id="bonus-printables"
+          className="px-5 pb-16 sm:px-8 sm:pb-20"
+        >
+          <div className="mx-auto w-full max-w-5xl">
+            <BonusPrintables />
           </div>
         </section>
 

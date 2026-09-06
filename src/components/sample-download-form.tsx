@@ -1,6 +1,9 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { BonusPrintables } from "@/components/bonus-printables";
+import { BuyCtas } from "@/components/buy-ctas";
+import { trackEvent } from "@/lib/analytics";
 import {
   isValidEmail,
   normalizeEmail,
@@ -62,6 +65,10 @@ export function SampleDownloadForm() {
       }
 
       startDownload(payload.pdfUrl);
+      trackEvent({
+        name: "sample_unlock",
+        href: payload.pdfUrl,
+      });
       setState({ status: "ready", pdfUrl: payload.pdfUrl });
     } catch {
       setState({
@@ -74,17 +81,31 @@ export function SampleDownloadForm() {
   switch (state.status) {
     case "ready":
       return (
-        <div className="space-y-4">
-          <p className="text-base leading-relaxed text-sage-ink/85">
-            Your sample is ready — a short excerpt from the ebook.
-          </p>
-          <a
-            href={state.pdfUrl}
-            download={SAMPLE_PDF_FILENAME}
-            className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-sage-deep px-6 text-base font-semibold text-cream shadow-sm transition hover:bg-sage-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage-deep sm:w-auto"
-          >
-            Download the free sample
-          </a>
+        <div className="space-y-6">
+          <div className="space-y-4">
+            <p className="text-base leading-relaxed text-sage-ink/85">
+              Your sample is ready. A short excerpt from the ebook.
+            </p>
+            <a
+              href={state.pdfUrl}
+              download={SAMPLE_PDF_FILENAME}
+              className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-sage-deep px-6 text-base font-semibold text-cream shadow-sm transition hover:bg-sage-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage-deep sm:w-auto"
+            >
+              Download the free sample
+            </a>
+          </div>
+          <BonusPrintables
+            layout="links"
+            intro="The watering and potting checklists are yours too (no extra step)."
+          />
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-leaf">
+              Want the full guide?
+            </p>
+            <div className="mt-3">
+              <BuyCtas layout="compact" />
+            </div>
+          </div>
         </div>
       );
     case "idle":
@@ -131,7 +152,7 @@ export function SampleDownloadForm() {
             className="text-sm leading-relaxed text-sage-ink/70"
           >
             We use this to unlock the sample and, now and then, share a plant
-            tip. No lists sold — and you can ignore us anytime.
+            tip. No lists sold, and you can ignore us anytime.
           </p>
           <p
             id="sample-status"
