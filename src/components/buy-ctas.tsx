@@ -82,7 +82,7 @@ function StoreLink({
       aria-disabled={placeholder || undefined}
       title={
         placeholder
-          ? `${CHANNEL_LABEL[channel]} — placeholder until the listing is published`
+          ? `${CHANNEL_LABEL[channel]} (placeholder until the listing is published)`
           : CHANNEL_LABEL[channel]
       }
       onClick={(event) => {

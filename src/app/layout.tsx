@@ -14,7 +14,7 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Happy House Plants — a starter guide to indoor plants",
+  title: "Happy House Plants, a starter guide to indoor plants",
   description:
     "A cozy digital ebook with easy care cards for indoor plants. Instant download from Etsy or Payhip.",
 };

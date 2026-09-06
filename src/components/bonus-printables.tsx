@@ -11,7 +11,7 @@ type BonusPrintablesProps = {
 };
 
 const DEFAULT_INTRO =
-  "Two one-page checklists to keep beside the watering can. Free to download — no email needed.";
+  "Two one-page checklists to keep beside the watering can. Free to download. No email needed.";
 
 const DOWNLOAD_LINK_CLASS =
   "inline-flex min-h-12 items-center justify-center rounded-full border-2 border-sage-deep bg-card px-6 text-base font-semibold text-sage-deep shadow-sm transition hover:bg-sage-mist focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage-deep";

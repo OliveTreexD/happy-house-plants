@@ -84,7 +84,7 @@ export function SampleDownloadForm() {
         <div className="space-y-6">
           <div className="space-y-4">
             <p className="text-base leading-relaxed text-sage-ink/85">
-              Your sample is ready — a short excerpt from the ebook.
+              Your sample is ready. A short excerpt from the ebook.
             </p>
             <a
               href={state.pdfUrl}
@@ -96,7 +96,7 @@ export function SampleDownloadForm() {
           </div>
           <BonusPrintables
             layout="links"
-            intro="The watering and potting checklists are yours too — no extra step."
+            intro="The watering and potting checklists are yours too (no extra step)."
           />
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-leaf">
@@ -152,7 +152,7 @@ export function SampleDownloadForm() {
             className="text-sm leading-relaxed text-sage-ink/70"
           >
             We use this to unlock the sample and, now and then, share a plant
-            tip. No lists sold — and you can ignore us anytime.
+            tip. No lists sold, and you can ignore us anytime.
           </p>
           <p
             id="sample-status"

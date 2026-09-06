@@ -4,7 +4,7 @@ export const BONUS_PRINTABLES = [
   {
     id: "watering",
     title: "Watering checklist",
-    body: "A one-week watering pass — when to water, when to wait.",
+    body: "A one-week watering pass (when to water, when to wait).",
     href: "/Happy-House-Plants-Watering-Checklist.pdf",
     filename: "Happy-House-Plants-Watering-Checklist.pdf",
   },

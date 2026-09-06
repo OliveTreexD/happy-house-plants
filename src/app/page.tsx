@@ -29,7 +29,7 @@ export default function Home() {
                 A guide to caring for indoor plants
               </p>
               <p className="mt-5 max-w-md text-base leading-relaxed text-cream/90 sm:text-lg">
-                A short starter handbook — not an encyclopedia. Use the care
+                A short starter handbook, not an encyclopedia. Use the care
                 cards when you bring a plant home, and keep it beside the
                 watering can.
               </p>
@@ -60,7 +60,7 @@ export default function Home() {
             />
             <ValueCard
               title="Starter-friendly"
-              body="Written for the plants you already love — and the ones you are about to bring home."
+              body="Written for the plants you already love, and the ones you are about to bring home."
             />
             <ValueCard
               title="Take it with you"
