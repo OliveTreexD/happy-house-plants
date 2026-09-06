@@ -1,11 +1,10 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 import {
   isValidEmail,
   normalizeEmail,
   SAMPLE_PDF_FILENAME,
-  SAMPLE_PDF_PATH,
 } from "@/lib/sample";
 
 type FormState =
@@ -13,29 +12,6 @@ type FormState =
   | { status: "submitting" }
   | { status: "ready"; pdfUrl: string }
   | { status: "error"; message: string };
-
-const UNLOCK_STORAGE_KEY = "hhp-sample-unlocked";
-
-function readUnlockedPdfUrl(): string | null {
-  if (typeof window === "undefined") {
-    return null;
-  }
-
-  try {
-    const stored = sessionStorage.getItem(UNLOCK_STORAGE_KEY);
-    return stored === SAMPLE_PDF_PATH ? stored : null;
-  } catch {
-    return null;
-  }
-}
-
-function rememberUnlock(pdfUrl: string) {
-  try {
-    sessionStorage.setItem(UNLOCK_STORAGE_KEY, pdfUrl);
-  } catch {
-    // Private mode can block storage; the download link still works this visit.
-  }
-}
 
 function startDownload(pdfUrl: string) {
   const link = document.createElement("a");
@@ -50,13 +26,6 @@ function startDownload(pdfUrl: string) {
 export function SampleDownloadForm() {
   const [email, setEmail] = useState("");
   const [state, setState] = useState<FormState>({ status: "idle" });
-
-  useEffect(() => {
-    const unlocked = readUnlockedPdfUrl();
-    if (unlocked) {
-      setState({ status: "ready", pdfUrl: unlocked });
-    }
-  }, []);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -92,7 +61,6 @@ export function SampleDownloadForm() {
         return;
       }
 
-      rememberUnlock(payload.pdfUrl);
       startDownload(payload.pdfUrl);
       setState({ status: "ready", pdfUrl: payload.pdfUrl });
     } catch {
