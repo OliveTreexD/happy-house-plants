@@ -1,4 +1,5 @@
 import { BuyCtas } from "@/components/buy-ctas";
+import { SampleDownloadForm } from "@/components/sample-download-form";
 
 export default function Home() {
   return (
@@ -35,7 +36,14 @@ export default function Home() {
                 <BuyCtas />
                 <p className="text-sm text-cream/80">
                   Etsy and Payhip links are placeholders until the listings go
-                  live.
+                  live.{" "}
+                  <a
+                    href="#free-sample"
+                    className="underline decoration-cream/50 underline-offset-4 transition hover:text-cream"
+                  >
+                    Or try a free sample first
+                  </a>
+                  .
                 </p>
               </div>
             </div>
@@ -68,6 +76,29 @@ export default function Home() {
               title="Take it with you"
               body="Instant digital download. Open it on your phone while you stand at the potting bench."
             />
+          </div>
+        </section>
+
+        <section
+          id="free-sample"
+          className="px-5 pb-16 sm:px-8 sm:pb-20"
+        >
+          <div className="mx-auto w-full max-w-5xl rounded-[2rem] bg-sage-mist/70 p-6 shadow-sm ring-1 ring-sage-deep/10 sm:p-10">
+            <div className="max-w-xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-leaf">
+                Free sample
+              </p>
+              <h2 className="mt-3 font-serif text-3xl text-sage-deep sm:text-4xl">
+                Peek at a care card first
+              </h2>
+              <p className="mt-3 text-base leading-relaxed text-sage-ink/85">
+                Leave your email and we&apos;ll unlock a short excerpt from
+                Happy House Plants. No checkout.
+              </p>
+            </div>
+            <div className="mt-6 max-w-xl">
+              <SampleDownloadForm />
+            </div>
           </div>
         </section>
       </main>
