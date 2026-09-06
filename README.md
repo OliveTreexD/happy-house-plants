@@ -20,7 +20,28 @@ Open [http://localhost:3000](http://localhost:3000).
 npm run build
 ```
 
-Buy CTAs currently use placeholder Etsy and Payhip hashes (`#placeholder-etsy`, `#placeholder-payhip`) until listings go live.
+## Buy CTAs (placeholders until listings go live)
+
+Buy buttons read `NEXT_PUBLIC_ETSY_URL` and `NEXT_PUBLIC_PAYHIP_URL` from the
+environment (see `.env.example`). Until those are set, they stay labeled
+placeholders (`#placeholder-etsy`, `#placeholder-payhip`) and do not invent
+live store URLs.
+
+## Bonus printables (OLI-11)
+
+The landing page and the post-sample thank-you area link the B2 checklists
+already in `public/`:
+
+- `/Happy-House-Plants-Watering-Checklist.pdf`
+- `/Happy-House-Plants-Potting-Checklist.pdf`
+
+## Light analytics / UTM (OLI-11)
+
+No third-party suite. Arrival `utm_*` query params (useful for Pinterest) are
+read and stored in `sessionStorage`, then appended to live store URLs once
+listings exist. Clicks and sample unlocks ping first-party `POST /api/event`
+(allowlisted event names only). In development the route logs to the server
+console; nothing is persisted.
 
 ## Free sample download (OLI-10)
 

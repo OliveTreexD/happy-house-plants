@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Nunito } from "next/font/google";
+import { UtmCapture } from "@/components/utm-capture";
 import "./globals.css";
 
 const nunito = Nunito({
@@ -24,7 +25,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${nunito.variable} ${fraunces.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <UtmCapture />
+        {children}
+      </body>
     </html>
   );
 }
